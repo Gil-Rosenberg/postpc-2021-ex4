@@ -12,11 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -88,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void onReceive(Context context, Intent incomingIntent) {
         if (incomingIntent == null || !incomingIntent.getAction().equals("found_roots")) return;
+
         // success finding roots!
         long root1 = incomingIntent.getLongExtra("root1", -1);
         long root2 = incomingIntent.getLongExtra("root2", -1);
@@ -104,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
         // start new activity for success:
         Intent successIntent = new Intent(MainActivity.this, SuccessScreen.class);
         successIntent.putExtra("calculation",
-                root1 + " + " + root2 + " = " + original_number);
+                root1 + " * " + root2 + " = " + original_number);
         successIntent.putExtra("calculation_time_in_seconds", calculation_time_in_seconds);
         startActivity(successIntent);
       }

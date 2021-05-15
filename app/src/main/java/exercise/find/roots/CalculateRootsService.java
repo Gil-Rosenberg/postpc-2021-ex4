@@ -12,6 +12,7 @@ public class CalculateRootsService extends IntentService {
     Intent broadcastIntent = new Intent("stopped_calculations");
     broadcastIntent.putExtra("original_number", numberToCalculateRootsFor);
     broadcastIntent.putExtra("time_until_give_up_seconds", maxTime);
+
     sendBroadcast(broadcastIntent);
   }
 
@@ -20,7 +21,18 @@ public class CalculateRootsService extends IntentService {
     broadcastIntent.putExtra("original_number", numberToCalculateRootsFor);
     broadcastIntent.putExtra("root1", root1);
     broadcastIntent.putExtra("root2", root2);
+
+    // ============================================================
+    System.out.println(root1);
+    System.out.println(root2);
+    // ============================================================
+
     long time = (System.currentTimeMillis() - timeStartMs) / 1000;
+
+    // ============================================================
+    System.out.println(time);
+    // ============================================================
+
     broadcastIntent.putExtra("calculation_time_in_seconds", time);
     sendBroadcast(broadcastIntent);
   }

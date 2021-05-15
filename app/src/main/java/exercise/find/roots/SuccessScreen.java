@@ -19,11 +19,11 @@ public class SuccessScreen extends AppCompatActivity {
 
         Intent intentCreatedMe = getIntent();
         TextView textView = findViewById(R.id.successText);
-        long originalNum = intentCreatedMe.getLongExtra("original_number", -1);
-        long root1 = intentCreatedMe.getLongExtra("root1", -1);
-        long root2 = intentCreatedMe.getLongExtra("root2", -1);
-        textView.setText(originalNum + " = " + root1 + " * " + root2);
+        TextView calculationTime = findViewById(R.id.calculation_time);
 
+        String result = intentCreatedMe.getStringExtra("calculation");
+        long time = intentCreatedMe.getLongExtra("calculation_time_in_seconds", -1);
+        textView.setText(result);
+        calculationTime.setText("calculation time in seconds: "+ time);
     }
-
 }
