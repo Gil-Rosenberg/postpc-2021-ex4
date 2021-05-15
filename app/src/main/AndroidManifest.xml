@@ -12,7 +12,7 @@
         android:theme="@style/Theme.FindRoots">
         <service
             android:name=".CalculateRootsService"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -27,8 +27,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-
-        <!--        TODO create a new class extending Activity and register it here in an <activity> tag -->
 
     </application>
 
