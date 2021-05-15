@@ -14,7 +14,7 @@ You should send a broadcast from this service.
 
 > take a loot at file `MainActivity.java`
 
-The MainActivity has UI to let the user input a number and start the service.
+The MainActivity 
 The **UI flow specs** are detailed in the file `MainActivity.java` and contain relevant specs for:
 1. when to start find-roots calculation service
 2. what to do when waiting for a result

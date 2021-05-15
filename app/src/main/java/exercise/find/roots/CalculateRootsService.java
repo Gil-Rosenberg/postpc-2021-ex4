@@ -15,11 +15,13 @@ public class CalculateRootsService extends IntentService {
     sendBroadcast(broadcastIntent);
   }
 
-  private void sendRoots(long numberToCalculateRootsFor, long root1, long root2){
+  private void sendRoots(long numberToCalculateRootsFor, long root1, long root2, long timeStartMs){
     Intent broadcastIntent = new Intent("found_roots");
     broadcastIntent.putExtra("original_number", numberToCalculateRootsFor);
     broadcastIntent.putExtra("root1", root1);
     broadcastIntent.putExtra("root2", root2);
+    long time = (System.currentTimeMillis() - timeStartMs) / 1000;
+    broadcastIntent.putExtra("calculation_time_in_seconds", time);
     sendBroadcast(broadcastIntent);
   }
 
@@ -42,11 +44,11 @@ public class CalculateRootsService extends IntentService {
 
     // upon success:
     if (isPrime){
-      sendRoots(numberToCalculateRootsFor, numberToCalculateRootsFor, 1);
+      sendRoots(numberToCalculateRootsFor, numberToCalculateRootsFor, 1, timeStartMs);
     }
 
     else {
-      sendRoots(numberToCalculateRootsFor, i, numberToCalculateRootsFor / i);
+      sendRoots(numberToCalculateRootsFor, i, numberToCalculateRootsFor / i, timeStartMs);
     }
   }
 
