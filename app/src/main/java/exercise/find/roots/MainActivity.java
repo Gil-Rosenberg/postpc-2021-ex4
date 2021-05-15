@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     catch (Exception e){
       return false;
     }
-    return (0 < num) && (num < Long.MAX_VALUE) && (num == Integer.parseInt(newText));
+    return (0 < num) && (num < Long.MAX_VALUE);
   }
 
   @Override
